@@ -1,0 +1,25 @@
+<!--The Submit Message Page Extended from base.html-->
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Submit{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <!-- <p> Submit your message and handle here! It will be added to the message bank!</p> -->
+    <br>
+    <form method="post">
+      <label for="message">Your message:</label>
+      <input type="text" name="message" id="message">
+      <br>
+      <label for="handle">Your name or handle:</label>
+      <input type="text" name="handle" id="handle">
+      <br>
+      <input type="submit" value="Submit message">
+    </form>
+
+    {% if thanks %}
+      <b>Thank you for submitting a message!</b>
+    {% endif %}
+
+{% endblock %}

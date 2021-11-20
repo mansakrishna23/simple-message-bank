@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Blog Post 3</title>
+<link rel="stylesheet" href="../static/my_style.css">
+<nav>
+  <h1>A Simple Message Bank</h1>
+  <ul>
+    <li><a href="{{ url_for('submit') }}">Submit a Message</a></li>
+    <li><a href="{{ url_for('view') }}">View Messages</a></li>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}
+    <br>
+    <p> Welcome to this simple message bank! Feel free to submit a message and view messages within the bank!</p>
+  {% endblock %}
+</section>
+
