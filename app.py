@@ -56,6 +56,10 @@ def random_messages(n):
     db = get_message_db()
     # extracting random messages and handles from messages table
     rand_messages = db.execute(f'SELECT handle, message FROM messages ORDER BY RANDOM() LIMIT {n}').fetchall()
+    # Close the connection!
+    db = g.pop('message_db', None)
+    if db is not None:
+        db.close()
     return rand_messages
 
 
@@ -74,4 +78,4 @@ def submit():
 
 @app.route("/view/")
 def view():
-    return render_template("view.html", random_messages = random_messages(6))
+    return render_template("view.html", rand_messages = random_messages(3))
